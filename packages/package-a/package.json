@@ -8,7 +8,6 @@
     "autoprefixer": "^9.8.6",
     "@atlaskit/atlassian-navigation": "^1.0.0",
     "@atlaskit/side-navigation": "^1.0.1",
-    "@atlassian/cs-marketplace-spi": "^13.1.2",
     "@babel/cli": "^7.14.8",
     "@babel/core": "^7.15.0",
     "@babel/node": "^7.14.9",
