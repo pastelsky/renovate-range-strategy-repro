@@ -36,62 +36,6 @@
       automerge: false,
       automergeType: "branch",
     },
-    {
-      groupName: "minor versions for bin",
-      matchPaths: [
-        "bin/package.json",
-        "bin/yarn.lock"
-      ],
-      matchUpdateTypes: [
-        "minor"
-      ],
-      schedule: [
-        "on the first day of the month"
-      ]
-    },
-    {
-      groupName: "minor atlaskit versions",
-      matchPaths: [
-        "!bin/*"
-      ],
-      matchPackagePatterns: [
-        "^@atlaskit/.+"
-      ],
-      matchUpdateTypes: [
-        "minor"
-      ],
-    },
-    {
-      groupName: "other minor versions",
-      matchPaths: [
-        "!bin/*"
-      ],
-      excludePackagePatterns: "^@atlaskit/.*",
-      matchUpdateTypes: [
-        "minor"
-      ],
-      enabled: false,
-      // Reduce noise for now
-      automerge: false,
-      automergeType: "branch",
-      schedule: [
-        "on the first day of the month"
-      ]
-    },
-    {
-      groupName: "internal packages",
-      matchPackagePatterns: [
-        "^@atlassian/mpac-.+",
-        "^@atlassian/amkt-.+"
-      ],
-      enabled: false
-    },
-    {
-      updateTypes: [
-        "major"
-      ],
-      enabled: false
-    }
   ],
   postUpgradeTasks: {
     commands: [],
