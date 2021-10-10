@@ -6,5 +6,10 @@
   "dependencies" : {
     "redux-thunk": "^2.2.0",
     "autoprefixer": "^9.8.6"
-  } 
+  } ,
+  "bolt": {
+    "workspaces": [
+      "packages/*"
+    ]
+  },
 }
