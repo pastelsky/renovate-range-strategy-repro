@@ -6,8 +6,8 @@
   ],
   reviewersSampleSize: 2,
   timezone: "Asia/Calcutta",
-  prConcurrentLimit: 3,
-  prHourlyLimit: 1,
+  prConcurrentLimit: 30,
+  prHourlyLimit: 100,
   /* Bump the range even if the new version satisfies the existing range, e.g. ^1.0.0 -> ^1.1.0 */
   rangeStrategy: "bump",
   "rebaseWhen": "behind-base-branch",
@@ -34,7 +34,7 @@
       matchUpdateTypes: [
         "patch"
       ],
-      automerge: true,
+      automerge: false,
       automergeType: "branch",
       schedule: [
         "at any time"
@@ -48,7 +48,7 @@
       matchUpdateTypes: [
         "patch"
       ],
-      automerge: true,
+      automerge: false,
       automergeType: "branch",
     },
     {
