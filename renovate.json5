@@ -36,9 +36,6 @@
       ],
       automerge: true,
       automergeType: "branch",
-      schedule: [
-        "at any time"
-      ]
     },
     {
       groupName: "patch versions for packages",
@@ -50,9 +47,6 @@
       ],
       automerge: true,
       automergeType: "branch",
-      schedule: [
-        "everyday"
-      ]
     },
     {
       groupName: "minor versions for bin",
