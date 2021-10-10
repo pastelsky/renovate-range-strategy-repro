@@ -1,0 +1,81 @@
+{
+  $schema: "https://docs.renovatebot.com/renovate-schema.json",
+  // See https://docs.renovatebot.com/presets-config/
+  extends: [
+    "config:base"
+  ],
+  reviewersSampleSize: 2,
+  timezone: "Asia/Calcutta",
+  prConcurrentLimit: 3,
+  prHourlyLimit: 1,
+  /* Bump the range even if the new version satisfies the existing range, e.g. ^1.0.0 -> ^1.1.0 */
+  rangeStrategy: "bump",
+  "rebaseWhen": "behind-base-branch",
+  commitMessagePrefix: "[Renovate]: ",
+  branchPrefix: "renovate/",
+  ignoreScripts: true,
+  stabilityDays: 5,
+  //  prCreation: "not-pending", // to enable if we start seeing a lot of PR noise
+  enabled: true,
+  /* Creates a "Dependency Dashboard" issue within the repository.
+   This issue contains a list of all PRs pending, open, closed (unmerged) or in error.
+   The goal of this issue is to give visibility into all updates that Renovate is managing. */
+  dependencyDashboard: true,
+  /* Append a table in the commit message body describing all updates in the commit */
+  commitBodyTable: true,
+  updatePinnedDependencies: false,
+  packageRules: [
+    {
+      groupName: "patch versions for bin",
+      matchPaths: [
+        "bin/package.json",
+        "bin/yarn.lock"
+      ],
+      matchUpdateTypes: [
+        "patch"
+      ],
+      automerge: true,
+      automergeType: "branch",
+      schedule: [
+        "at any time"
+      ]
+    },
+    {
+      groupName: "patch versions for packages",
+      matchPaths: [
+        "!bin/*"
+      ],
+      matchUpdateTypes: [
+        "patch"
+      ],
+      automerge: true,
+      automergeType: "branch",
+      schedule: [
+        "everyday"
+      ]
+    },
+    {
+      groupName: "minor versions for bin",
+      matchPaths: [
+        "bin/package.json",
+        "bin/yarn.lock"
+      ],
+      matchUpdateTypes: [
+        "minor"
+      ],
+      schedule: [
+        "on the first day of the month"
+      ]
+    },
+    {
+      updateTypes: [
+        "major"
+      ],
+      enabled: false
+    }
+  ],
+  // Run yarn-deduplicate --strategy fewer after yarn.lock updates
+  postUpdateOptions: [
+    "yarnDedupeFewer"
+  ]
+}
