@@ -15,9 +15,6 @@
   branchPrefix: "renovate/",
   ignoreScripts: true,
   stabilityDays: 5,
-   enabledManagers: [
-    "npm"
-  ],
   //  prCreation: "not-pending", // to enable if we start seeing a lot of PR noise
   enabled: true,
   /* Creates a "Dependency Dashboard" issue within the repository.
