@@ -26,21 +26,6 @@
   updatePinnedDependencies: false,
   packageRules: [
     {
-      groupName: "patch versions for bin",
-      matchPaths: [
-        "bin/package.json",
-        "bin/yarn.lock"
-      ],
-      matchUpdateTypes: [
-        "patch"
-      ],
-      automerge: false,
-      automergeType: "branch",
-      schedule: [
-        "at any time"
-      ]
-    },
-    {
       groupName: "patch versions for packages",
       matchPaths: [
         "!bin/*"
