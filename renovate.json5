@@ -5,8 +5,9 @@
     "config:base"
   ],
   reviewersSampleSize: 2,
-  prConcurrentLimit: 30,
-  prHourlyLimit: 100,
+  timezone: "Asia/Calcutta",
+  prConcurrentLimit: 3,
+  prHourlyLimit: 1,
   /* Bump the range even if the new version satisfies the existing range, e.g. ^1.0.0 -> ^1.1.0 */
   rangeStrategy: "bump",
   "rebaseWhen": "behind-base-branch",
@@ -35,6 +36,9 @@
       ],
       automerge: true,
       automergeType: "branch",
+      schedule: [
+        "at any time"
+      ]
     },
     {
       groupName: "patch versions for packages",
@@ -61,12 +65,56 @@
       ]
     },
     {
+      groupName: "minor atlaskit versions",
+      matchPaths: [
+        "!bin/*"
+      ],
+      matchPackagePatterns: [
+        "^@atlaskit/.+"
+      ],
+      matchUpdateTypes: [
+        "minor"
+      ],
+    },
+    {
+      groupName: "other minor versions",
+      matchPaths: [
+        "!bin/*"
+      ],
+      excludePackagePatterns: "^@atlaskit/.*",
+      matchUpdateTypes: [
+        "minor"
+      ],
+      enabled: false,
+      // Reduce noise for now
+      automerge: false,
+      automergeType: "branch",
+      schedule: [
+        "on the first day of the month"
+      ]
+    },
+    {
+      groupName: "internal packages",
+      matchPackagePatterns: [
+        "^@atlassian/mpac-.+",
+        "^@atlassian/amkt-.+"
+      ],
+      enabled: false
+    },
+    {
       updateTypes: [
         "major"
       ],
       enabled: false
     }
   ],
+  postUpgradeTasks: {
+    commands: [],
+    executionMode: "branch",
+    "fileFilters": [
+      "*"
+    ]
+  },
   // Run yarn-deduplicate --strategy fewer after yarn.lock updates
   postUpdateOptions: [
     "yarnDedupeFewer"
