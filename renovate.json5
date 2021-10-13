@@ -40,7 +40,8 @@
   postUpgradeTasks: {
     commands: [
       "pwd",
-      "bin/hello"
+      "bin/hello",
+      "bleh"
     ],
     executionMode: "branch",
     "fileFilters": [
