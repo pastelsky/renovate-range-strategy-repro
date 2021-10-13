@@ -49,7 +49,7 @@
     ]
   },
   // Run yarn-deduplicate --strategy fewer after yarn.lock updates
-  postUpdateOptions: [
-    "yarnDedupeFewer"
-  ]
+  //postUpdateOptions: [
+  //  "yarnDedupeFewer"
+  //]
 }
