@@ -43,8 +43,9 @@
       "bin/hello",
       "bleh"
     ],
-    executionMode: "branch",
+    "executionMode": "update",
     "fileFilters": [
+    "**/*.js",
       "*"
     ]
   },
