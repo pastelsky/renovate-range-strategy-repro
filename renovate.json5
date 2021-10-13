@@ -38,7 +38,10 @@
     },
   ],
   postUpgradeTasks: {
-    commands: [],
+    commands: [
+      "pwd",
+      "bin/hello"
+    ],
     executionMode: "branch",
     "fileFilters": [
       "*"
